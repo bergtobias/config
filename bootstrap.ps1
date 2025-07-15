@@ -151,6 +151,17 @@ if (-not (Get-Command git -ErrorAction SilentlyContinue)) {
     Write-Host "Git is already installed."
 }
 
+# Copy .gitconfig from a global config source path to the user's home directory (default global location)
+$gitConfigSource = "C:\Path\To\Your\Global\.gitconfig"
+$gitConfigDestination = Join-Path $env:USERPROFILE ".gitconfig"
+
+if (Test-Path $gitConfigSource) {
+    Copy-Item -Path $gitConfigSource -Destination $gitConfigDestination -Force
+    Write-Host "Git configuration copied to $gitConfigDestination"
+} else {
+    Write-Host "Global .gitconfig not found at $gitConfigSource. Skipping copy."
+}
+
 Write-Host "`n=== STEP 3: Installing VS Code and Remote WSL Extension ==="
 
 if (-not (Get-Command code -ErrorAction SilentlyContinue)) {
