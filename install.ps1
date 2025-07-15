@@ -1,11 +1,12 @@
 $zipUrl = "https://github.com/bergtobias/config/archive/refs/heads/main.zip"
 $dest = ".\config.zip"
-$extractPath = ".\config"
+$extractParent = "."  # Extract to current directory
 
 Invoke-WebRequest -Uri $zipUrl -OutFile $dest
-Expand-Archive -Path $dest -DestinationPath $extractPath -Force
+Expand-Archive -Path $dest -DestinationPath $extractParent -Force
 Remove-Item $dest
 
-# The ZIP extracts to a subfolder named "config-main" — rename it:
-Rename-Item -Path "$extractPath\config-main" -NewName "config"
-Write-Host "Repository downloaded and extracted to $extractPath\config"
+# Rename extracted folder from 'config-main' to 'config'
+Rename-Item -Path ".\config-main" -NewName "config"
+
+Write-Host "Repository downloaded and extracted to .\config"
