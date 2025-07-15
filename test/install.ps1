@@ -1,6 +1,6 @@
 $zipUrl = "https://github.com/bergtobias/config/archive/refs/heads/main.zip"
-$dest = ".\config.zip"
-$extractPath = ".\config"
+$dest = "$env:USERPROFILE\config.zip"
+$extractPath = "$env:USERPROFILE\config"
 
 Invoke-WebRequest -Uri $zipUrl -OutFile $dest
 Expand-Archive -Path $dest -DestinationPath $extractPath -Force
