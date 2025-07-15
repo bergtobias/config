@@ -17,6 +17,17 @@ else
   sudo usermod -aG docker $USER
 fi
 
+if ! command -v kubectl &> /dev/null; then
+  echo "kubectl not found. Installing kubectl..."
+  curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+  curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
+  echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check
+  sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+  chmod +x kubectl
+  mkdir -p ~/.local/bin
+  mv ./kubectl ~/.local/bin/kubectl
+fi
+
 if ! command -v jq &> /dev/null; then
   echo "jq not found. Installing jq..."
   sudo apt-get update
