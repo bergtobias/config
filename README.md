@@ -2,21 +2,15 @@
 
 1. Open **PowerShell as Administrator**
 
-2. Clone the repository or download and extract the ZIP archive to your desired folder.
 
-   * To clone (requires Git):
 
-     ```powershell
-     git clone https://github.com/YourOrg/YourRepo.git
-     cd YourRepo
-     ```
+## Improved flow
 
-   * To download ZIP manually:
-     Download from `https://github.com/YourOrg/YourRepo/archive/refs/heads/main.zip` and extract it.
+```powershell
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/bergtobias/config/main/install.ps1" -OutFile "$env:USERPROFILE\install.ps1"
 
-3. Run the bootstrap script with execution policy bypass:
+```
 
-   ```powershell
-   Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass; . .\bootstrap.ps1
-   ```
-
+```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass; . .\bootstrap.ps1
+```
