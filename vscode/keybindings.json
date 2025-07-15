@@ -1,0 +1,12 @@
+[
+  {
+    "key": "left",
+    "command": "workbench.action.navigateBack",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "right",
+    "command": "workbench.action.navigateForward",
+    "when": "editorTextFocus"
+  }
+]

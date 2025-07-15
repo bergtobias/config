@@ -1,0 +1,7 @@
+[init]
+        defaultBranch = main
+[user]
+        email = tobiaswillyberg@gmail.com
+        name = Tobias Berg
+[credential]
+        helper = manager-core

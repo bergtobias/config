@@ -1,0 +1,10 @@
+
+alias gs='git status'
+alias gp='git pull'
+alias gc='git commit'
+alias d='docker'
+alias k='kubectl'
+alias ll='ls -la'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias c='clear'
